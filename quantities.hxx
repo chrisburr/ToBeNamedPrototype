@@ -2,15 +2,15 @@
 #include <Math/Vector4D.h>
 
 namespace quantities {
-auto pt(auto df, std::vector<std::string> varSet, const std::string &outputname,
-        const std::string &inputvector) {
+auto pt(auto df, std::vector<std::string> &varSet,
+        const std::string &outputname, const std::string &inputvector) {
     varSet.push_back(outputname);
     return df.Define(
         outputname,
         [](const ROOT::Math::PtEtaPhiMVector &p4) { return p4.pt(); },
         {inputvector});
 }
-auto eta(auto df, std::vector<std::string> varSet,
+auto eta(auto df, std::vector<std::string> &varSet,
          const std::string &outputname, const std::string &inputvector) {
     varSet.push_back(outputname);
     return df.Define(
@@ -18,7 +18,7 @@ auto eta(auto df, std::vector<std::string> varSet,
         [](const ROOT::Math::PtEtaPhiMVector &p4) { return p4.eta(); },
         {inputvector});
 }
-auto phi(auto df, std::vector<std::string> varSet,
+auto phi(auto df, std::vector<std::string> &varSet,
          const std::string &outputname, const std::string &inputvector) {
     varSet.push_back(outputname);
     return df.Define(
@@ -26,7 +26,7 @@ auto phi(auto df, std::vector<std::string> varSet,
         [](const ROOT::Math::PtEtaPhiMVector &p4) { return p4.phi(); },
         {inputvector});
 }
-auto m_vis(auto df, std::vector<std::string> varSet,
+auto m_vis(auto df, std::vector<std::string> &varSet,
            const std::string &outputname,
            const std::vector<std::string> &inputvectors) {
     varSet.push_back(outputname);
