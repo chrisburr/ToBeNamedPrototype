@@ -27,8 +27,7 @@ auto phi(auto df, std::vector<std::string> varSet,
         {inputvector});
 }
 auto m_vis(auto df, std::vector<std::string> varSet,
-           const std::string &outputname, const std::string &inputvector1,
-           const std::string &inputvector2) {
+           const std::string &outputname, const std::string &inputvectors) {
     varSet.push_back(outputname);
     // build visible mass from the two particles
     return df.Define("m_vis",
@@ -37,6 +36,6 @@ auto m_vis(auto df, std::vector<std::string> varSet,
                          auto const dileptonsystem = p4_1 + p4_2;
                          return dileptonsystem.mass();
                      },
-                     {inputvector1, inputvector2});
+                     inputvectors);
 }
 } // end namespace quantities
