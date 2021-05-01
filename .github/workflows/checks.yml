@@ -41,7 +41,7 @@ jobs:
 
     - name: Test
       shell: bash
-      run: cd ${{github.workspace}}/build && ctest -V
+      run: export CONDA_BUILD_SYSROOT=/opt/conda/x86_64-conda-linux-gnu/sysroot && cd ${{github.workspace}}/build && ctest -V
 
   python_format:
     runs-on: ubuntu-20.04
