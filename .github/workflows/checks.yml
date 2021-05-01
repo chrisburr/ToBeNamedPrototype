@@ -25,6 +25,8 @@ jobs:
     - name: Install missing software
       run: conda install -y cmake make
 
+    - run: env
+
     - name: Create Build Environment
       shell: bash
       run: cmake -E make_directory ${{github.workspace}}/build
